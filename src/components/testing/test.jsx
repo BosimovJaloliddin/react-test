@@ -6,18 +6,17 @@ class Test extends React.Component {
     return (
       <>
         <Container>
-          <Box bg="white" type="large">
-            Large
+          <Box size="200px" type="large">
+            Hellow
           </Box>
-          <Box bg="red" type="medium">
-            Medium
+          <Box size="150px" type="middle">
+            Hellow
           </Box>
-          <Box bg="black" type="smoll">
-            Smoll
+          <Box size="100px" type="smoll">
+            Hellow
           </Box>
-          <Title>Hi my bro</Title>
-          <Subtitle left>Hi my kro</Subtitle>
-          <Subtitle state="left">Hi my kro2</Subtitle>
+          <Title left="left">Welcom to Webbrain</Title>
+          <Subtitle>Welcom</Subtitle>
         </Container>
       </>
     );

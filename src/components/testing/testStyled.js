@@ -2,45 +2,37 @@ import styled, { css } from "styled-components";
 
 export const Container = styled("div")`
   display: flex;
-  background-color: yellow;
-`;
-
-const getSize = (props) => {
-  return {
-    large: "200px",
-    medium: "150px",
-    smoll: "100px",
-  }[props.type];
-};
-
-export const Box = styled.div`
-  background: ${(props) => props.bg};
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 24px;
-  width: ${getSize};
-  height: ${getSize};
-  margin: 20px;
-  color: green;
-  border: 2px solid black;
+  gap: 30px;
 `;
+
+// const getSize = (props) => {
+//   return {
+//     large: "200px",
+//     middle: "150px",
+//     smoll: "100px",
+//   }[props.type];
+// };
 
 const common = css`
-  font-size: 20px;
-  font-weight: 500;
-  height: fit-content;
-  border: 1px solid red;
-  margin: 20px;
-  padding: 10px;
+  border: 1px solid green;
+  color: white;
+  background: ${(props) => (props.left === "left" ? "red" : "yellow")};
+  width: 400px;
+  height: 50px;
 `;
 
-export const Title = styled.div`
-  ${common}
-  border-radius: 7px;
+export const Box = styled.h1`
+  border: 1px solid red;
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-export const Subtitle = styled.div`
+export const Title = styled.h1`
   ${common}
-  background: ${({ left }) => (left ? "red" : "green")};
-  font-size: 12px;
+`;
+export const Subtitle = styled("h2")`
+  ${common}
 `;
