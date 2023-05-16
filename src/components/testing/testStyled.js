@@ -1,38 +1,39 @@
-import styled, { css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+const rotate = keyframes`
+from{
+  transform: rotate(0deg);
+}
+to{
+  transform: rotate(360deg);
+}
+`;
 export const Container = styled("div")`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+  margin: 40px;
 `;
-
-// const getSize = (props) => {
-//   return {
-//     large: "200px",
-//     middle: "150px",
-//     smoll: "100px",
-//   }[props.type];
-// };
-
-const common = css`
-  border: 1px solid green;
-  color: white;
-  background: ${(props) => (props.left === "left" ? "red" : "yellow")};
-  width: 400px;
-  height: 50px;
-`;
-
-export const Box = styled.h1`
-  border: 1px solid red;
-  width: ${(props) => props.size};
-  height: ${(props) => props.size};
+export const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 120px;
+  height: 40px;
+  background: green;
+  color: white;
+  border-radius: 10px;
+  margin: 10px;
+  &:active {
+    transform: scale(0.97);
+  }
 `;
-export const Title = styled.h1`
-  ${common}
-`;
-export const Subtitle = styled("h2")`
-  ${common}
+
+export const ActiveButton = styled(Button)``;
+export const Rotate = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  border-radius: 50%;
+  animation: ${rotate} 2s linear infinite;
 `;

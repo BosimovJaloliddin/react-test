@@ -1,23 +1,34 @@
 import React from "react";
 import "./test.css";
-import { Container, Box, Title, Subtitle } from "./testStyled";
+import { Container, Button, ActiveButton, Rotate } from "./testStyled";
+
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+const GlobalStyle = createGlobalStyle`
+body{
+  background: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.cl};
+}
+`;
 class Test extends React.Component {
+  state = {
+    light: true,
+  };
   render() {
+    const theme = {
+      bg: this.state.light ? "white" : "black",
+      cl: this.state.light ? "black" : "white",
+    };
     return (
       <>
-        <Container>
-          <Box size="200px" type="large">
-            Hellow
-          </Box>
-          <Box size="150px" type="middle">
-            Hellow
-          </Box>
-          <Box size="100px" type="smoll">
-            Hellow
-          </Box>
-          <Title left="left">Welcom to Webbrain</Title>
-          <Subtitle>Welcom</Subtitle>
-        </Container>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Button>My button</Button>
+          <ActiveButton>Active button</ActiveButton>
+          <Rotate>Rotate</Rotate>
+          <button onClick={() => this.setState({ light: !this.state.light })}>
+            onClick
+          </button>
+        </ThemeProvider>
       </>
     );
   }
