@@ -1,24 +1,21 @@
 import React from "react";
 import "./test.css";
 import { students } from "./mock";
-import Signin from "./Signin";
-import Signup from "./Signup";
+
 class Test extends React.Component {
   state = {
-    active: true,
     data: students,
   };
   render() {
-    const getVal = (value) => {
-      this.setState({ active: value });
-    };
     return (
       <div>
-        {this.state.active ? (
-          <Signup getVal={getVal} />
-        ) : (
-          <Signin getVal={getVal} />
-        )}
+        {this.state.data.map((v) => (
+          <div key={v.id}>
+            <h3>
+              {v.id} {v.name}
+            </h3>
+          </div>
+        ))}
       </div>
     );
   }
