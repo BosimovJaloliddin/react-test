@@ -1,25 +1,25 @@
 import React from "react";
 import "./test.css";
-import { Container, Box, Title, Subtitle } from "./testStyled";
+import { students } from "./mock";
+import Signin from "./Signin";
+import Signup from "./Signup";
 class Test extends React.Component {
+  state = {
+    active: true,
+    data: students,
+  };
   render() {
+    const getVal = (value) => {
+      this.setState({ active: value });
+    };
     return (
-      <>
-        <Container>
-          <Box bg="white" type="large">
-            Large
-          </Box>
-          <Box bg="red" type="medium">
-            Medium
-          </Box>
-          <Box bg="black" type="smoll">
-            Smoll
-          </Box>
-          <Title>Hi my bro</Title>
-          <Subtitle left>Hi my kro</Subtitle>
-          <Subtitle state="left">Hi my kro2</Subtitle>
-        </Container>
-      </>
+      <div>
+        {this.state.active ? (
+          <Signup getVal={getVal} />
+        ) : (
+          <Signin getVal={getVal} />
+        )}
+      </div>
     );
   }
 }
