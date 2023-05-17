@@ -1,25 +1,47 @@
 import React from "react";
 import "./test.css";
-import { Container, Box, Title, Subtitle } from "./testStyled";
 class Test extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 1,
+    };
+    // this.plus = this.plus.bind(this);
+  }
+  // componentWillMount() {
+  //   console.log("componentWillMount");
+  // }
+  // componentDidMount() {
+  //   console.log("componentDidMount");
+  // }
+  // componentWillReceiveProps() {
+  //   console.log("componentWillReceiveProps");
+  // }
+  // shouldComponentUpdate() {
+  //   console.log("shouldComponentUpdate");
+  //   return true;
+  // }
+  // componentWillUpdate() {
+  //   console.log("componentWillUpdate");
+  // }
+  // componentDidUpdate() {
+  //   console.log("componentWillUpdate");
+  // }
+  // componentWillUnmount() {
+  //   console.log("componentWillUnmount");
+  // }
+  // plus() {
+  //   this.setState({ count: this.state.count + 1 });
+  // }
   render() {
     return (
-      <>
-        <Container>
-          <Box bg="white" type="large">
-            Large
-          </Box>
-          <Box bg="red" type="medium">
-            Medium
-          </Box>
-          <Box bg="black" type="smoll">
-            Smoll
-          </Box>
-          <Title>Hi my bro</Title>
-          <Subtitle left>Hi my kro</Subtitle>
-          <Subtitle state="left">Hi my kro2</Subtitle>
-        </Container>
-      </>
+      <div>
+        {/* {console.log("render")} */}
+        <h1>{this.state.count}</h1>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          +
+        </button>
+      </div>
     );
   }
 }
