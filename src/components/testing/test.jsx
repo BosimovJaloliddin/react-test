@@ -1,29 +1,27 @@
 import React, { Component } from "react";
-import { student } from "./mock.js";
 
 export default class Test extends Component {
-  state = {
-    active: true,
-    data: student,
-  };
-  render() {
-    const onDelete = (id) => {
-      let res = this.state.data.filter((v) => v.id !== id);
-      this.setState({ data: res });
+  constructor() {
+    super();
+    this.state = {
+      count: 1,
     };
+  }
+  onClick() {
+    this.setState({ count: this.state.count * 2 });
+  }
+  render() {
+    // const onClick = () => {
+    //   this.setState({ count: this.state.count * 2 });
+    // };
     return (
       <div>
-        <h1>List</h1>
-        {this.state.active
-          ? this.state.data.map((v, index) => (
-              <div key={index}>
-                <span>
-                  {index + 1}-<b>{v.id}</b> - {v.name}
-                </span>
-                <button onClick={() => onDelete(v.id)}>Delete</button>
-              </div>
-            ))
-          : "Godbay"}
+        <h1>{this.state.count}</h1>
+        <button onClick={this.onClick.bind(this)}>n*2</button>
+        <button onClick={() => this.onClick(this)}>n*2</button>
+        <button onClick={() => this.setState({ count: this.state.count * 2 })}>
+          n*2
+        </button>
       </div>
     );
   }
