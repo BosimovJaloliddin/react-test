@@ -8,6 +8,6 @@ export let student = [
   { id: 7, name: "Hoshim", status: "AI" },
   { id: 8, name: "Fitrat", status: "IT" },
   { id: 9, name: "Jamoliddin", status: "IT" },
-  { id: 9, name: "Anora", status: "IT" },
-  { id: 9, name: "Abora", status: "IT" },
+  { id: 10, name: "Anora", status: "IT" },
+  { id: 11, name: "Abora", status: "IT" },
 ];
