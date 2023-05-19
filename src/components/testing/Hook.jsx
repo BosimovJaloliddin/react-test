@@ -1,34 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useReducer } from "react";
 
-const Hooks = (props) => {
-  const [count, setCount] = useState(props.value);
-  const [name, setName] = useState("Ali");
-  useEffect(() => {
-    setCount(props.value);
-  }, [props.value]);
-  // useEffect(() => {
-  //   console.log("case 1");
-  // });
-  // useEffect(() => {
-  //   console.log("case 2");
-  // }, []);
-  // useEffect(() => {
-  //   console.log("case 3");
-  // }, [count]);
-  // useEffect(() => {
-  //   console.log("case 4");
-  // }, [count, name]);
+const Hooks = () => {
+  const reduce = (state, action) => {
+    switch (action.type) {
+      case "counter":
+        return state + action.payload;
+      default:
+        return state;
+    }
+  };
+  const [count, dispatch] = useReducer(reduce, 0);
+
   return (
-    <div style={{ flex: 1 }}>
-      <h1>Count:{count}</h1>
-      <h1>Name:{name}</h1>
-      <input
-        type="text"
-        value={name}
-        onChange={({ target }) => setName(target.value)}
-      />
-      <button onClick={() => setCount(count - 1)}>-</button>
-      <button onClick={() => setCount(count + 1)}>+</button>
+    <div>
+      <h1>Counter:{count}</h1>
+      <button onClick={() => dispatch({ type: "counter", payload: 1 })}>
+        +
+      </button>
+      <button onClick={() => dispatch({ type: "counter", payload: -1 })}>
+        -
+      </button>
+      <button onClick={() => dispatch({ type: "counter", payload: 50 })}>
+        +50
+      </button>
+      <button onClick={() => dispatch({ type: "counter", payload: -50 })}>
+        -50
+      </button>
     </div>
   );
 };

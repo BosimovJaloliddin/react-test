@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Hooks from "./Hook";
 
 export default class Class extends Component {
   state = {
@@ -15,7 +14,6 @@ export default class Class extends Component {
         <button onClick={() => this.setState({ count: this.state.count - 1 })}>
           -
         </button>
-        <Hooks value={this.state.count} />
       </div>
     );
   }
