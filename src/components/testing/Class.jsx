@@ -3,7 +3,7 @@ import Hooks from "./Hook";
 
 export default class Class extends Component {
   state = {
-    count: 0,
+    count: 20,
   };
   render() {
     return (
@@ -15,7 +15,7 @@ export default class Class extends Component {
         <button onClick={() => this.setState({ count: this.state.count - 1 })}>
           -
         </button>
-        <Hooks value={this.state.count} />
+        <Hooks count={this.state.count} />
       </div>
     );
   }

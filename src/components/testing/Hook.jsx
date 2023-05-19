@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
 
 const Hooks = (props) => {
-  const [count, setCount] = useState(props.value);
+  const [count, setCount] = useState(props.count);
   const [name, setName] = useState("Ali");
   useEffect(() => {
-    setCount(props.value);
-  }, [props.value]);
+    setCount(props.count);
+  }, [props.count]);
+  // // case 1
   // useEffect(() => {
   //   console.log("case 1");
   // });
+
+  // // case 2
   // useEffect(() => {
   //   console.log("case 2");
   // }, []);
+
+  // // case 3
   // useEffect(() => {
   //   console.log("case 3");
   // }, [count]);
+
+  // // case 4
   // useEffect(() => {
   //   console.log("case 4");
   // }, [count, name]);
