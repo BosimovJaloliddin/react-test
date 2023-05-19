@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Test from "./components/testing/test";
+import Class from "./components/testing/Class";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Test />
-  </React.StrictMode>
+  <div style={{ display: "flex" }}>
+    <Class />
+  </div>
 );
