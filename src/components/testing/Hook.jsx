@@ -1,32 +1,21 @@
-import React, { useReducer } from "react";
+import React, { useContext } from "react";
+import { StudentContext } from "./contex";
 
 const Hooks = () => {
-  const reduce = (state, action) => {
-    switch (action.type) {
-      case "bir":
-        return state + action.payload;
-      default:
-        return state;
-    }
+  const [students, setStudents] = useContext(StudentContext);
+  const onDelete = (id) => {
+    let res = students.filter((student) => student.id !== id);
+    setStudents(res);
   };
-  const [count, dispatch] = useReducer(reduce, 0);
   return (
     <div>
-      <h1>useReducer counter:{count}</h1>
-      <button onClick={() => dispatch({ type: "bir", payload: 1 })}>+1</button>
-      <button onClick={() => dispatch({ type: "bir", payload: 5 })}>+5</button>
-      <button onClick={() => dispatch({ type: "bir", payload: 20 })}>
-        +20
-      </button>
-      <button onClick={() => dispatch({ type: "bir", payload: 50 })}>
-        +50
-      </button>
-      <button onClick={() => dispatch({ type: "bir", payload: -50 })}>
-        -50
-      </button>
-      <button onClick={() => dispatch({ type: "bir", payload: 100 })}>
-        100
-      </button>
+      <h1>Student {students.length}</h1>
+      {students.map((student) => (
+        <h1 key={student.id}>
+          {student.id} - {student.name}{" "}
+          <button onClick={() => onDelete(student.id)}>delete</button>
+        </h1>
+      ))}
     </div>
   );
 };
