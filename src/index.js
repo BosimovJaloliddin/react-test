@@ -1,13 +1,13 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Root from "./components/testing/root";
-import StudentList from "./components/testing/contex";
+import Root from "./root/root";
+import Context from "./context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <StudentList>
+    <Context>
       <Root />
-    </StudentList>
+    </Context>
   </>
 );

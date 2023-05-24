@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import { StudentContext } from "./contex";
 
-export const Body = () => {
-  const data = useContext(StudentContext);
+const Body = () => {
+  // const data = useContext(StudentContext);
   return (
     <div
       style={{
@@ -12,10 +11,11 @@ export const Body = () => {
         padding: "16px",
       }}
     >
-      <h2>Students {data[0].length}</h2>
+      <h2>Students </h2>
       <h2>About</h2>
       <h2>Prodaction</h2>
       <h2>Contact</h2>
     </div>
   );
 };
+export default Body;
