@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Class from "./components/testing/Class";
-import Hooks from "./components/testing/Hooks";
+import { BrowserRouter } from "react-router-dom";
+import Root from "./components/Root/root";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <>
-    <div style={{ display: "flex" }}>
-      <Class />
-      <Hooks />
-    </div>
-  </>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Root />
+    </BrowserRouter>
+  </React.StrictMode>
 );
