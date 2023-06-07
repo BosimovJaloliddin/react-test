@@ -1,16 +1,16 @@
 import React from "react";
-import { Container, Item } from "./style";
+
+import { Item, Wrap } from "./syled";
 
 const Navbar = () => {
   return (
-    <Container>
-      <Item exact to={"/home"}>
-        Home
-      </Item>
-      <Item to={"/about"}>About</Item>
+    <Wrap>
+      <Item to={"/"}>Logo</Item>
+      <Item to={"/home"}>Home</Item>
       <Item to={"/contact"}>Contact</Item>
       <Item to={"/info"}>Info</Item>
-    </Container>
+    </Wrap>
   );
 };
+
 export default Navbar;
