@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 export const Wrap = styled.div`
   display: flex;
@@ -13,5 +13,6 @@ export const Item = styled(NavLink)`
   align-items: center;
   font-size: 24px;
   font-weight: 500;
-  color: white;
+  cursor: pointer;
+  color: ${({ active }) => (active ? "red" : "white")};
 `;

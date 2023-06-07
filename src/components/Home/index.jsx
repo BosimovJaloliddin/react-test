@@ -14,7 +14,7 @@ const Home = () => {
     <div style={{ display: "flex", justifyContent: "space-around" }}>
       <div>
         {data.map((v) => (
-          <h1>
+          <h1 key={v.id}>
             {v.id}-{v.name} <button onClick={() => setUser(v)}>Click</button>
           </h1>
         ))}
