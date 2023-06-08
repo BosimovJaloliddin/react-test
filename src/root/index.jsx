@@ -1,23 +1,34 @@
 import React from "react";
-// import { Navigate } from "react-router-dom";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import Contact from "../components/contact";
-import Home from "../components/Home";
-import Info from "../components/Info";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Login from "../components/Login";
+import { navbar } from "../utils";
 
 const Root = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const onDelete = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+  const token = localStorage.getItem("token");
   return (
     <div>
+      <button onClick={onDelete}>Delete Login</button>
       <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/info" element={<Info />} />
-          <Route path="/login" element={<Login />} />
+        <Route element={<Navbar />}>
+          {navbar.map(
+            ({ id, path, element, isPrive }) =>
+              isPrive && <Route key={id} path={path} element={element} />
+          )}
+          {navbar.map(
+            ({ id, path, element, isPrive }) =>
+              !isPrive && (
+                <Route
+                  key={id}
+                  path={path}
+                  element={token ? element : <Navigate to="/login" />}
+                />
+              )
+          )}
         </Route>
       </Routes>
     </div>

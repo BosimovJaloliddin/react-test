@@ -1,32 +1,26 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
-import { Item, Wrap } from "./syled";
-
-// const ac = (url) => {
-//   return window.location.pathname.includes(url);
-// };
+import { Outlet } from "react-router-dom";
+import { navbar } from "../../utils";
+import { Wrap, Link } from "./syled";
 
 const Navbar = () => {
   return (
-    <>
+    <div>
       <Wrap>
-        <Item to={"/"}>Home</Item>
-        <Item active={window.location.pathname.includes("/home")} to={"/home"}>
-          Home
-        </Item>
-        <Item to={"/contact"}>Contact</Item>
-        <Item to={"/info"}>Info</Item>
-        <NavLink
-          style={({ isActive }) => {
-            return { color: isActive ? "red" : "white" };
-          }}
-          to={"/login"}
-        >
-          Login
-        </NavLink>
+        {navbar.map(({ id, path, title }) => (
+          <Link
+            style={({ isActive }) => {
+              return { color: isActive ? "red" : "white" };
+            }}
+            key={id}
+            to={path}
+          >
+            {title}
+          </Link>
+        ))}
       </Wrap>
       <Outlet />
-    </>
+    </div>
   );
 };
 
